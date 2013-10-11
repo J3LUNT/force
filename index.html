@@ -1,108 +1,95 @@
-
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
-		<title>D3: Force layout</title>
-		<script type="text/javascript" src="http://mbostock.github.com/d3/d3.min.js"></script>
-		<style type="text/css">
-			/* No style rules here yet */
-			svg {display: block; width: 100%; margin: 0 auto;}
-		
+<html class="full" lang="en"><!-- The full page image background will only work if the html has the custom class set to it! Don't delete it! -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-		</style>
-	</head>
-	<body>
-		<script type="text/javascript">
+    <title>Bazoingle</title>
 
-			//Width and height
-			var w = 300;
-			var h = 440;
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
 
-			//Original data
-			var dataset = {
-				nodes: [
-					{ name: "Adam" },
-					{ name: "Bob" },
-					{ name: "Carrie" },
-					{ name: "Donovan" },
-					{ name: "Edward" },
-					{ name: "Felicity" },
-					{ name: "George" },
-					{ name: "Hannah" },
-					{ name: "Iris" },
-					{ name: "Jerry" }
-				],
-				edges: [
-					{ source: 0, target: 1 },
-					{ source: 0, target: 2 },
-					{ source: 0, target: 3 },
-					{ source: 0, target: 4 },
-					{ source: 1, target: 5 },
-					{ source: 2, target: 5 },
-					{ source: 2, target: 5 },
-					{ source: 3, target: 4 },
-					{ source: 5, target: 8 },
-					{ source: 5, target: 9 },
-					{ source: 6, target: 7 },
-					{ source: 7, target: 8 },
-					{ source: 8, target: 9 }
-				]
-			};
+    <!-- Custom CSS for the 'Full' Template -->
+    <link href="css/the-big-picture.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Leckerli+One|Coustard:900" rel="stylesheet" type="text/css" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.25.0"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        circle {
+            fill: none;
+            stroke-width: 10px;
+            }
 
-			//Initialize a default force layout, using the nodes and edges in dataset
-			var force = d3.layout.force()
-								 .nodes(dataset.nodes)
-								 .links(dataset.edges)
-								 .size([w, h])
-								 .linkDistance([50])
-								 .charge([-100])
-								 .start();
+    </style>
+    </head>
 
-			var colors = d3.scale.category10();
+      <body>
+        <center>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12">
+          <h1>Bazoingle</h1>
+          <p>Coming Soon</p>
+        </div>
+      </div>
+    </div>
+    </center>
+    
 
-			//Create SVG element
-			var svg = d3.select("body")
-						.append("svg")
-						.attr("width", w)
-						.attr("height", h);
-			
-			//Create edges as lines
-			var edges = svg.selectAll("line")
-				.data(dataset.edges)
-				.enter()
-				.append("line")
-				.style("stroke", "#ccc")
-				.style("stroke-width", 1);
-			
-			//Create nodes as circles
-			var nodes = svg.selectAll("circle")
-				.data(dataset.nodes)
-				.enter()
-				.append("circle")
-				.attr("r", 10)
-				.style("fill", function(d, i) {
-					return colors(i);
-				})
-				.call(force.drag);
-			
-			//Every time the simulation "ticks", this will be called
-			force.on("tick", function() {
+    </div>  
 
-				edges.attr("x1", function(d) { return d.source.x; })
-					 .attr("y1", function(d) { return d.source.y; })
-					 .attr("x2", function(d) { return d.target.x; })
-					 .attr("y2", function(d) { return d.target.y; });
-			
-				nodes.attr("cx", function(d) { return d.x; })
-					 .attr("cy", function(d) { return d.y; });
-	
-			});
+    <div class = "navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
 
+     <script type="text/javascript">     
 
-		</script>
-		
-		<script src="jquery.min.js"></script>
-		<script src="response.min.js"></script>
-	</body>
+var w = 800,
+    h = 600,
+    z = d3.scale.category20c(),
+    i = 0;
+
+var svg = d3.select("body").append("svg:svg")
+    .attr("width", w)
+    .attr("height", h)
+    .style("pointer-events", "all")
+    .on("mousemove", particle);
+
+function particle() {
+  var m = d3.svg.mouse(this);
+
+  svg.append("svg:circle")
+      .attr("cx", m[0])
+      .attr("cy", m[1])
+      .attr("r", 1e-6)
+      .style("stroke", z(++i))
+      .style("stroke-opacity", 1)
+    .transition()
+      .duration(2500)
+      .ease(Math.sqrt)
+      .attr("r", 100)
+      .style("stroke-opacity", 1e-6)
+      .remove();
+}
+
+    </script>
+        </div>
+        
+     
+        
+        </div>
+     
+      </div>
+
+  <!-- javascript -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script><!--icons <a href="#" class= "navbar-text"><i class="icon-btc icon-2x"></i></a>
+            <a href="#" class= "navbar-text"><i class="icon-tumblr-sign icon-2x"></i></a>
+            <a href="#" class= "navbar-text"><i class="icon-instagram icon-2x"></i></a> -->
+
+  </body>
+
 </html>
