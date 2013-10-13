@@ -20,14 +20,16 @@
    
 
     body {
-  margin-top: 30px;
-  margin-bottom: 50px;
+  margin-top: 0px;
+  margin-bottom: 30px;
   background: none;
   font-family: 'Lato', sans-serif;
   font-weight: 100;
   text-transform: uppercase;
 }
-
+.force {
+  position: absolute;
+}
 .full {
   background: #0ac5f4;
   -webkit-background-size: cover;
@@ -39,7 +41,7 @@ h1 {
   font-family: 'Lato', sans-serif;
     font-weight: 300;
     color: #00A876;
-    font-size: 50px;
+    font-size: 60px;
     text-transform: uppercase;
     color: #fff;
 }
@@ -47,13 +49,15 @@ h3{
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
     font-weight: 300;
+    color: white;
     font-size: 30px;
     position: relative;
     }
-     svg {display: block; width: 99%; margin: 0 auto;}
+     svg {display: block; width: 99%; margin: 0 auto; position: absolute;}
       svg.ontouchmove = function(e) {
     e.stopPropagation();
         };
+
 
     </style>
    
@@ -61,17 +65,12 @@ h3{
     </head>
 
       <body>
-      <center>
-    
-          <h1>Bazoingle</h1>
-        </center>
-
-        <div class="container">
+        <div class="container" id="force"> 
     <script type="text/javascript">
 
       //Width and height
-      var w = 350,
-          h = 280,
+      var w = 400,
+          h = 600,
           fill = d3.scale.ordinal(),
           nodes = [],
           links = [];
@@ -113,8 +112,8 @@ h3{
                  .nodes(dataset.nodes)
                  .links(dataset.edges)
                  .size([w, h])
-                 .linkDistance([50])
-                 .charge([-100])
+                 .linkDistance([80])
+                 .charge([-70])
                  .start();
 
       var colors = d3.scale.category10();
@@ -159,13 +158,29 @@ h3{
 
 
     </script>
-
-        </div>
-          
-
-        
-
-    
+</div>
+      <center>
+          <h1>Bazoingle</h1>
+        </center>
+<br>
+<br>
+<br>
+<br>       
+<br>
+<br>        
+<br>
+<br>
+<br>
+<br>       
+<br>
+<br>   
+<br>        
+<br>
+<br>
+<br>
+<br>       
+<br>
+<br>  
     
     </div> 
     <center> 
