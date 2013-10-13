@@ -2,25 +2,27 @@
 <html class="full" lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>Bazoingle</title>
 
-   
+    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
+    <!-- Custom CSS for the 'Full' Template -->
     
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="http://mbostock.github.com/d3/d3.min.js"></script>
+
     
     <style type="text/css">
    
 
     body {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   background: none;
   font-family: 'Lato', sans-serif;
   font-weight: 100;
@@ -40,7 +42,7 @@ h1 {
   font-family: 'Lato', sans-serif;
     font-weight: 300;
     color: #00A876;
-    font-size: 50px;
+    font-size: 60px;
     text-transform: uppercase;
     color: #fff;
 }
@@ -64,11 +66,12 @@ h3{
     </head>
 
       <body>
+        <script type="text/javascript">document.body.addEventListener('touchmove',function(event){ event.preventDefault(); },false);</script>
         <div class="container" id="force"> 
     <script type="text/javascript">
 
       //Width and height
-      var w = 420,
+      var w = 350,
           h = 550,
           fill = d3.scale.ordinal(),
           nodes = [],
@@ -111,11 +114,11 @@ h3{
                  .nodes(dataset.nodes)
                  .links(dataset.edges)
                  .size([w, h])
-                 .linkDistance([80])
+                 .linkDistance([50])
                  .charge([-100])
                  .start();
 
-      var colors = d3.scale.category10();
+      var colors = d3.scale.category20();
 
       //Create SVG element
       var svg = d3.select("body")
@@ -158,13 +161,15 @@ h3{
 
     </script>
 </div>
-
       <center>
           <h1>Bazoingle</h1>
         </center>
-
 <br>
 <br>
+<br>
+<br>       
+<br>
+<br>        
 <br>
 <br>
 <br>
