@@ -52,7 +52,7 @@ h3{
     font-size: 30px;
     position: relative;
     }
-     svg {display: block; width: 99%; margin: 0 auto; position: absolute;}
+     svg {display: block; width: 100%; margin: 0 auto; position: absolute;}
       svg.ontouchmove = function(e) {
     e.stopPropagation();
         };
@@ -68,7 +68,7 @@ h3{
     <script type="text/javascript">
 
       //Width and height
-      var w = 400,
+      var w = 420,
           h = 550,
           fill = d3.scale.ordinal(),
           nodes = [],
@@ -112,7 +112,7 @@ h3{
                  .links(dataset.edges)
                  .size([w, h])
                  .linkDistance([80])
-                 .charge([-70])
+                 .charge([-100])
                  .start();
 
       var colors = d3.scale.category10();
@@ -136,7 +136,7 @@ h3{
         .data(dataset.nodes)
         .enter()
         .append("circle")
-        .attr("r", 15)
+        .attr("r", 13)
         .style("fill", function(d, i) {
           return colors(i);
         })
@@ -158,10 +158,12 @@ h3{
 
     </script>
 </div>
+<div class="container">
       <center>
           <h1>Bazoingle</h1>
         </center>
-<br>
+</div>
+
 <br>
 <br>
 <br>
