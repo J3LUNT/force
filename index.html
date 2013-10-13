@@ -20,7 +20,7 @@
    
 
     body {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 50px;
   background: none;
   font-family: 'Lato', sans-serif;
@@ -37,20 +37,20 @@
 }
 h1 {
   font-family: 'Lato', sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     color: #00A876;
-    font-size: 50px;
+    font-size: 60px;
     text-transform: uppercase;
     color: #fff;
 }
 h3{
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
-    font-weight: 100;
-    font-size: 25px;
+    font-weight: 300;
+    font-size: 30px;
     position: relative;
     }
-     svg {display: block; width: 50%; margin: 0 auto;}
+     svg {display: block; width: 99%; margin: 0 auto;}
       svg.ontouchmove = function(e) {
     e.stopPropagation();
         };
@@ -62,16 +62,16 @@ h3{
 
       <body>
       <center>
-    <div class="container">
-      <div class="row">
-        <div class="vert-text">
+    
           <h1>Bazoingle</h1>
+        </center>
+
         <div class="container">
     <script type="text/javascript">
 
       //Width and height
-      var w = 320,
-          h = 240,
+      var w = 400,
+          h = 390,
           fill = d3.scale.ordinal(),
           nodes = [],
           links = [];
@@ -113,8 +113,8 @@ h3{
                  .nodes(dataset.nodes)
                  .links(dataset.edges)
                  .size([w, h])
-                 .linkDistance([25])
-                 .charge([-50])
+                 .linkDistance([50])
+                 .charge([-100])
                  .start();
 
       var colors = d3.scale.category10();
@@ -138,7 +138,7 @@ h3{
         .data(dataset.nodes)
         .enter()
         .append("circle")
-        .attr("r", 5)
+        .attr("r", 10)
         .style("fill", function(d, i) {
           return colors(i);
         })
@@ -163,11 +163,9 @@ h3{
         </div>
           
 
-        </div>
-      </div>
-    </div>
+        
 
-    </center>
+    
     
     </div> 
     <center> 
